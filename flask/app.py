@@ -51,11 +51,11 @@ def pessoa():
 
     query = "SELECT * FROM public.pessoa WHERE 1=1"
     if nome:
-        query += " AND nome='{}'".format(nome)
+        query += " AND upper(nome)='{}'".format(nome.upper())
     if idade:
         query += " AND idade='{}'".format(idade)
     if profissao:
-        query += " AND profissao='{}'".format(profissao)
+        query += " AND upper(profissao)='{}'".format(profissao.upper())
 
     result = db.engine.execute(text(query).execution_options(autocommit=True))
     if result.rowcount == 0:
