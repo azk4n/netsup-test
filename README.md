@@ -7,32 +7,31 @@ criar 2 bancos de dados POSTGRESQL:
 
 ``` bash
 
-# clonar este repo
+# Passo 1 - clonar este repo
 git clone https://github.com/azk4n/netsup-test
 cd netsup-test
 
-# criar e ativar virtualenv
+# Passo 2 - criar e ativar virtualenv
 virtualenv --python=python3 venv
 source venv/bin/activate
-
 cd flask/
 
-# configure o seu usuario do banco de dados onde esta <azk4n>
+# Passo 3 - configure o seu usuario do banco de dados onde esta <azk4n>
 nano config.py
 
-# deps
+# Passo 4 - deps
 pip install -r requirements.txt
 
-# cria as tabelas do teste no banco netsupdb
+# Passo 5 - cria as tabelas do teste no banco netsupdb
 flask db upgrade
 
-# carga de dados (para usar no frontend ou caso for testar a API via postman, curl, etc)
+# Passo 6 - carga de dados (para usar no frontend ou caso for testar a API via postman, curl, etc)
 python fixtures.py
 
-# localhost:5000
+# Passo 7 - executar, localhost:5000
 flask run
 
-# testes (possuem fixture automaticas que sao removidas apos conclusao dos testes, necessita do banco netsupdb_test criado)
+# Passo 8 - testes (possuem fixture automaticas que sao removidas apos conclusao dos testes, necessita do banco netsupdb_test criado)
 pytest
 
 ```
@@ -64,11 +63,11 @@ npm run dev
 npm test
 ```
 
+# Problema:
 
+Na minha visão o problema era saber <b>quanto</b> pagar e <b>o que</b> pagar para determinado doutor entre um periodo de tempo.
 
-na minha visao o problema era saber quanto pagar e o que pagar para determinado doutor entre um periodo de tempo
-
-o resultado final da gerar_relatorio, com os dados da fixture, seria mais ou menos isso:
+O resultado final da gerar_relatorio, com os dados da fixture (Passo 6), seria mais ou menos isso:
 
 ``` json
 {
