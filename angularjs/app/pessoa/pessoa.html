@@ -1,0 +1,89 @@
+ <div class="card">
+  <h5 class="card-header">Pessoas</h5>
+  <div class="card-body">
+    <div class="row">
+      <div class="col-sm-12">
+        <div ng-show="showAlertError" class="alert alert-danger" role="alert">
+          {{errorMsg}}
+          <button type="button" class="close" data-dismiss="alert" aria-label="Fechar">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-6">
+        <form class="form-inline">
+          <div class="input-group mb-3">
+              <input ng-blur="getPessoa()" class="form-control" ng-model="pessoa.id" id="id" placeholder="ID">
+            <div class="input-group-append">
+              <button data-toggle="modal" data-target="#searchModal" type="submit" class="btn btn-primary"><i class="fa fa-search"></i></button>
+            </div>
+          </div>
+          <div class="input-group mb-3">
+            <input class="form-control" ng-model="pessoa.nome" id="nome" placeholder="Nome">
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+  <div class="modal fade" id="searchModal" aria-labelledby="searchModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="searchModalLabel">Pesquisar Pessoas</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <div class="col-sm-12">
+            <div ng-show="showAlertModalError" class="alert alert-danger" role="alert">
+              {{errorMsg}}
+              <button type="button" class="close" data-dismiss="alert" aria-label="Fechar">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+          </div>
+        </div>
+          <div class="row">
+            <form class="form-inline">
+              <div class="input-group">
+                <input class="form-control" ng-model="pesquisa.nome" id="nome" placeholder="Nome">
+                <input class="form-control" ng-model="pesquisa.idade" id="idade" placeholder="Idade">
+                <input class="form-control" ng-model="pesquisa.profissao" id="profissao" placeholder="Profissão">
+                <button id="searchButton" ng-click="search()" class="btn btn-primary">Listar</button>
+              </div>
+            </form>
+          </div>
+          <div class="row">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th scope="col">ID</th>
+                  <th scope="col">Nome</th>
+                  <th scope="col">Idade</th>
+                  <th scope="col">Profissão</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr ng-click="clickRowHandler(item)" ng-dblclick="dblClickRowHandler(item)" ng-repeat="item in pessoas">
+                  <th scope="row">{{item.id}}</th>
+                  <td>{{item.nome}}</td>
+                  <td>{{item.idade}}</td>
+                  <td>{{item.profissao}}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-dismiss="modal">Fechar</button>
+        <button type="button" ng-click="selectButtonHandler()" ng-disabled='selectedPessoa.id == ""' class="btn btn-primary">Selecionar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
