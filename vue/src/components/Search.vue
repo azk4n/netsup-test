@@ -14,7 +14,7 @@
         </b-alert>
         <b-form inline>
           <b-input-group>
-            <b-form-input id="inputId" v-model="form.id" @blur="getPessoa" placeholder="ID" />
+            <b-form-input id="inputId" v-model="form.id" @blur="getPessoa" placeholder="idd" />
             <b-input-group-append>
               <b-button variant="info" id="showModalButton" @click="showModal()"><font-awesome-icon icon="search" /></b-button>
             </b-input-group-append>
@@ -106,12 +106,12 @@ export default {
       this.selectedRow = record
     },
     dblClickRowHandler (record, index) {
-      this.pessoa = record
+      this.form = record
       this.selectedRow = ''
       this.hideModal()
     },
     selectButtonHandler () {
-      this.pessoa = this.selectedRow
+      this.form = this.selectedRow
       this.selectedRow = ''
       this.hideModal()
     },
@@ -133,10 +133,10 @@ export default {
         'detail',
         { id })
         .then((res) => {
-          this.pessoa.nome = res.result.nome
+          this.form.nome = res.result.nome
         })
         .catch(err => {
-          this.pessoa.nome = ''
+          this.form.nome = ''
           this.showAlertError = 1
           this.errMsg = err.data.message
         })
