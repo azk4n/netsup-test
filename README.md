@@ -3,13 +3,18 @@ criar 2 bancos de dados POSTGRESQL:
 - netsupdb
 - netsupdb-test (para os testes, populado no inicio da execução dos testes e truncado ao final)
 
+# backend (flask):
 
 ``` bash
 
+# clonar este repo
+git clone https://github.com/azk4n/netsup-test
+cd netsup-test
 
 # criar e ativar virtualenv
 virtualenv --python=python3 venv
 source venv/bin/activate
+
 cd flask/
 
 # configure o seu usuario do banco de dados onde esta <azk4n>
@@ -33,9 +38,7 @@ pytest
 ```
 
 
-# vue
-
-projeto Vue.js
+# frontend (vue):
 
 ``` bash
 # deps
@@ -48,7 +51,7 @@ npm run dev
 npm test
 ```
 
-projeto AngularJS
+# frontend (angularjs):
 
 ``` bash
 # deps
