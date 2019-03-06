@@ -57,7 +57,7 @@ npm test
 npm install
 
 # localhost:8000
-npm run dev
+npm start
 
 # tests
 npm test
