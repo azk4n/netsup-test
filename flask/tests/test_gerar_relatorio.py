@@ -28,7 +28,7 @@ def test_nenhum_registro_encontrado(client, db, tipo_servico, custo_1, custo_2, 
 
 
 def test_falha_conectar_banco(app, client, db, tipo_servico, custo_1, custo_2, custo_3, job_1, job_2, doutor):
-    # fechando a sessao do banco para teste
+    # alterando o uri do banco com "xxx"
     db_uri = app.config["SQLALCHEMY_DATABASE_URI"]
     test_db_uri = f"{db_uri}xxx"
     app.config['SQLALCHEMY_DATABASE_URI'] = test_db_uri
