@@ -14,7 +14,7 @@
         </b-alert>
         <b-form inline>
           <b-input-group>
-            <b-form-input id="inputId" v-model="form.id" @blur="getPessoa" placeholder="idd" />
+            <b-form-input id="inputId" v-model="form.id" @blur="getPessoa" placeholder="ID" />
             <b-input-group-append>
               <b-button variant="info" id="showModalButton" @click="showModal()"><font-awesome-icon icon="search" /></b-button>
             </b-input-group-append>
